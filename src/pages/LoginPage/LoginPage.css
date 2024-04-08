@@ -1,0 +1,26 @@
+.title {
+  font-size: 38px;
+}
+.login-btn-txt {
+  /*color: #101010 !important;*/
+  color: #E7E7E5;
+}
+
+.login__img {
+  width: 50%;
+  margin-block: 16px;
+}
+
+.footer_text {
+  font-weight: lighter;
+  color: #7F7F7F;
+  width: 100%;
+  text-align: right;
+  margin-top: 16px;
+  font-size: 12px;
+}
+
+.go-to-signup {
+  color: #E7E7E5;
+  text-decoration: underline;
+}
