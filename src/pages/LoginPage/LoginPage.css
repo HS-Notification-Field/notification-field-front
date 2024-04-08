@@ -1,5 +1,5 @@
 .title {
-  font-size: 38px;
+  font-size: clamp(38px, 44px, 46px);
 }
 .login-btn-txt {
   /*color: #101010 !important;*/
