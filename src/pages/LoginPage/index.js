@@ -2,11 +2,20 @@ import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import './LoginPage.css'
-
+import Swal from 'sweetalert2'
+import {Input} from "../../components/buttons/Input";
 const LoginPage = () => {
 	const navigate = useNavigate();
-	const goToMain = () => {
-		navigate("/main")
+	const goToMain = async () => {
+		const {value: result} = await Swal.fire({
+			title: "로그인 성공!",
+			// text: "That thing is still around?",
+			// icon: "question"
+			confirmButtonText: "확인",
+		});
+		if(result) {
+			navigate("/main")
+		}
 	}
 	return (
 		<Login>
@@ -15,8 +24,8 @@ const LoginPage = () => {
 			</header>
 			<img src="/image/login_img.png" className="login__img" alt="로그인 이미지"/>
 			<main>
-				<InputButton placeholder="아이디를 입력하세요."/>
-				<InputButton placeholder="비밀번호를 입력하세요."/>
+				<Input type="text" placeholder="아이디를 입력하세요."/>
+				<Input type="password" placeholder="비밀번호를 입력하세요."/>
 				<LoginButton onClick={goToMain}>
 					<span className="login-btn-txt">로그인</span>
 				</LoginButton>
@@ -41,23 +50,14 @@ const Login = styled.div`
 `
 
 const LoginButton = styled.button`
+	border: 1px solid #101010;
   border-radius: 16px;
   background-color: #472F91;
   width: calc(100%);
   height: 48px;
   font-size: 16px;
   letter-spacing: 1.25px;
-`
-
-const InputButton = styled.input`
-  border: 1px solid #35383F;
-  border-radius: 16px;
-  background-color: #141414;
-  width: calc(100%);
-  height: 48px;
-  margin-bottom: 16px;
-  color: #7F7F7F;
-  font-size: 16px;
-  padding: 0 16px;
-  letter-spacing: 1.25px;
+	&:hover {
+		cursor: pointer;
+	}
 `

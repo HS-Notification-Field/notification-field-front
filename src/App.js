@@ -6,7 +6,7 @@ import MainPage from "./pages/MainPage";
 import React from "react";
 import {Footer} from "./components/Footer";
 import SearchPage from "./pages/SearchPage";
-import {Signup} from "./pages/Signup/Signup";
+import {Index} from "./pages/Signup";
 
 const Layout = () => {
 	return(
@@ -24,7 +24,7 @@ function App() {
 	  <div className="app">
 		  <Routes>
 			  <Route index element={<LoginPage/>}/>
-			  <Route path="signup" element={<Signup/>}/>
+			  <Route path="signup" element={<Index/>}/>
 			  <Route path="/" element={<Layout/>} >
 				  <Route index element={<></>}/>
 				  <Route path="main" element={<MainPage/>}/>
