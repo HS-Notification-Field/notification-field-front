@@ -1,9 +1,10 @@
 .title {
   text-align: center;
-  font-size: clamp(38px, 46px, 60px);
+  font-size: clamp(38px, 44px, 46px);
 
 }
 
 .list {
   width: 100%;
+  margin-bottom: 16px;
 }

@@ -1,0 +1,8 @@
+.selected {
+  background-color:#1C1C1C;
+  color: #E7E7E5 !important;
+}
+
+.drop-text-wrapper {
+  position: relative;
+}
