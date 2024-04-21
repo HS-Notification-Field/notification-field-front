@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import './LoginPage.css'
 import Swal from 'sweetalert2'
-import {Input} from "../../components/buttons/Input";
+import {Input} from "../../components/inputGroup/Input";
 const LoginPage = () => {
 	const navigate = useNavigate();
 	const goToMain = async () => {
@@ -12,6 +12,8 @@ const LoginPage = () => {
 			// text: "That thing is still around?",
 			// icon: "question"
 			confirmButtonText: "확인",
+			// background: "#101010",
+			// confirmButtonColor: "#111111"
 		});
 		if(result) {
 			navigate("/main")
@@ -23,14 +25,16 @@ const LoginPage = () => {
 				<h1 className="title">한신대학교 알리미</h1>
 			</header>
 			<img src="/image/login_img.png" className="login__img" alt="로그인 이미지"/>
-			<main>
+			<LoginMain>
 				<Input type="text" placeholder="아이디를 입력하세요."/>
+				<div className={"mt-[16px]"}></div>
 				<Input type="password" placeholder="비밀번호를 입력하세요."/>
+				<div className={"mt-[16px]"}></div>
 				<LoginButton onClick={goToMain}>
 					<span className="login-btn-txt">로그인</span>
 				</LoginButton>
 				<div className="footer_text">회원 가입은 <Link className="go-to-signup" to="/signup">여기</Link>를 클릭해주세요</div>
-			</main>
+			</LoginMain>
 		</Login>
 	)
 }
@@ -46,9 +50,10 @@ const Login = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-
 `
-
+const LoginMain = styled.main`
+	width: 100%;
+`
 const LoginButton = styled.button`
 	border: 1px solid #101010;
   border-radius: 16px;

@@ -1,44 +1,59 @@
 import React from 'react'
 import styled from "styled-components";
 import './Signup.css'
-import {Input} from "../../components/buttons/Input";
+import {Input} from "../../components/inputGroup/Input";
+import {useNavigate} from "react-router-dom";
+import {Dropdown} from "../../components/menu/Dropdown";
+import {EmailInput} from "../../components/inputGroup/EmailInput";
+import {PasswordInput} from "../../components/inputGroup/PasswordInput";
 
 export const Index = () => {
+	const navigate = useNavigate();
+
+	const signup = () => {
+		navigate("/main")
+	}
+
 	return (
 		<SignupWrapper>
 			<div className="title">회원 가입</div>
 			<div className="list">
-				아이디
+				<Category>아이디</Category>
 				<Input type="text" placeholder="아이디를 입력해주세요."/>
 			</div>
 			<div className="list">
-				비밀번호
-				<Input type="password" placeholder="비밀번호를 입력하세요"/>
-				<Input type="password" placeholder="비밀번호를 한번 더 입력하세요"/>
+				<Category>비밀번호</Category>
+				<PasswordInput/>
 			</div>
 			<div className="list">
-				이메일
-				<Input type="text" placeholder="이메일을 입력해주세요."/>
-				<Input type="text" placeholder="인증번호를 입력해주세요"/>
+				<Category>이메일</Category>
+				<EmailInput/>
 			</div>
 			<div className="list">
-				학과
-				<Input type="text" placeholder="학과를 입력해주세요."/>
+				<Category>학과</Category>
+				<Dropdown/>
 			</div>
 			<div className="list">
-				학번/사번
+				<Category>학번/사번</Category>
 				<Input type="text" placeholder="학번/사번을 입력해주세요"/>
 			</div>
 			<div className="list">
-				이름
+				<Category>이름</Category>
 				<Input type="text" placeholder="이름을 입력해주세요."/>
 			</div>
-			<SignupButton>
+			<SignupButton disabled onClick={signup}>
 				<span className="login-btn-txt">회원가입</span>
 			</SignupButton>
 		</SignupWrapper>
-	)
+	);
 }
+
+
+
+const Category = styled.span`
+	margin-bottom: 4px;
+
+`
 
 const SignupWrapper = styled.div`
 	margin: 0 auto;
@@ -47,7 +62,7 @@ const SignupWrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height:100vh;
+	min-height:100vh;
 `
 
 const SignupButton = styled.button`

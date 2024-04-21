@@ -1,0 +1,33 @@
+.email-input {
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-right: none !important;
+}
+
+.email-check-input {
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.email-input:hover + span,
+.email-input:focus + span{
+  border: 1px solid #E5E5E7;
+  border-left: none;
+}
+
+.active {
+  color : #3366FF!important;
+}
+
+.space {
+  margin-block: 8px;
+}
+
+.email-validate-fail {
+  border: 1px solid #F05056!important;
+  border-right: none!important;
+}
+.email-validate-fail + span {
+  border: 1px solid #F05056!important;
+  border-left: none!important;
+}
