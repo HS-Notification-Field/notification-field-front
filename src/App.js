@@ -7,6 +7,7 @@ import React from "react";
 import {Footer} from "./components/Footer";
 import SearchPage from "./pages/SearchPage";
 import {Index} from "./pages/Signup";
+import {Redirect} from "./util/Redirect";
 
 const Layout = () => {
 	return(
@@ -30,6 +31,7 @@ function App() {
 				  <Route path="main" element={<MainPage/>}/>
 				  <Route path="search" element={<SearchPage/>}/>
 			  </Route>
+			  <Route path="/redirect" element={<Redirect/>}/>
 		  </Routes>
 	  </div>
   );

@@ -3,7 +3,7 @@ import "./Dropdown.css"
 import {DropdownList} from "./DropdownList";
 import styled from "styled-components";
 
-export const Dropdown = () => {
+export const Dropdown = (props) => {
 	const [text, setText] = useState("학과를 선택해주세요");
 	const [open, setOpen] = useState(false);
 	const [select, setSelect] = useState(false);
@@ -21,7 +21,7 @@ export const Dropdown = () => {
 			</DropTextArea>
 			{
 				open ?
-					<DropdownList onclick={{setText, setOpen, setSelect}} text={text}/> :
+					<DropdownList onclick={{setText, setOpen, setSelect}} onSet={props.onSet} text={text}/> :
 					null
 			}
 		</div>
@@ -41,7 +41,7 @@ const DropTextArea = styled.div`
   padding: 0 16px;
   font-size: 16px;
   letter-spacing: 1.25px;
-	z-index: 9999;
+	//z-index: 9999;
 
   &:hover {
     border: 1px solid #E7E7E5;
