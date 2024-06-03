@@ -7,6 +7,7 @@ export const DropdownList = (props) => {
 		props.onclick.setText(text);
 		props.onclick.setOpen(o => !o);
 		props.onclick.setSelect(true);
+		props.onSet(text);
 	}
 	return (
 		<DropdownContainer>

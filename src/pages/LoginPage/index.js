@@ -1,23 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import './LoginPage.css'
 import Swal from 'sweetalert2'
 import {Input} from "../../components/inputGroup/Input";
+import {userState} from "../../util/state";
+
 const LoginPage = () => {
+	const [id, setId] = useState("");
+	const [pwd, setPwd] = useState("");
+	const {user} = userState;
+	const checkId = (event) => {
+		setId(event.target.value);
+	}
+	const checkPwd = (event) => {
+		setPwd(event.target.value);
+	}
 	const navigate = useNavigate();
 	const goToMain = async () => {
-		const {value: result} = await Swal.fire({
-			title: "로그인 성공!",
-			// text: "That thing is still around?",
-			// icon: "question"
-			confirmButtonText: "확인",
-			// background: "#101010",
-			// confirmButtonColor: "#111111"
-		});
-		if(result) {
-			navigate("/main")
-		}
+		console.log(user)
+		await user
+			.isExist(id, pwd)
+			.then(async (res) => {
+				await Swal.fire({
+					title: res ? "로그인 성공!" : "로그인 실패",
+					icon: res ? "success": "error",
+					showConfirmButton: false,
+					timer: 1000,
+				})
+				if(res) {
+					navigate("/main");
+				}
+			})
+
 	}
 	return (
 		<Login>
@@ -26,9 +41,9 @@ const LoginPage = () => {
 			</header>
 			<img src="/image/login_img.png" className="login__img" alt="로그인 이미지"/>
 			<LoginMain>
-				<Input type="text" placeholder="아이디를 입력하세요."/>
+				<Input type="text" onChange={checkId} placeholder="아이디를 입력하세요."/>
 				<div className={"mt-[16px]"}></div>
-				<Input type="password" placeholder="비밀번호를 입력하세요."/>
+				<Input type="password" onChange={checkPwd} placeholder="비밀번호를 입력하세요."/>
 				<div className={"mt-[16px]"}></div>
 				<LoginButton onClick={goToMain}>
 					<span className="login-btn-txt">로그인</span>

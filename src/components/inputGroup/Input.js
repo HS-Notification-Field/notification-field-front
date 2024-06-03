@@ -7,6 +7,7 @@ export const Input = (props) => {
 			// props.onBlur ?
 			<InputButton
 				onBlur={props.onBlur}
+				onChange={props.onChange}
 				className={props.className}
 				type={props.type}
 				placeholder={props.placeholder}
