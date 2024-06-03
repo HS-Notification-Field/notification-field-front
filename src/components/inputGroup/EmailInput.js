@@ -19,23 +19,23 @@ export const EmailInput = (props) => {
 		setEmail(e.target.value);
 	}
 	const sendEmail = () => {
-		// randNum.current = {message:String(Math.floor(Math.random() * 1000000)).padStart(6, "0")}
-		// emailjs.send("service_ndlrp3n","template_g74apye",{
-		// 	to_email: `${email}@hs.ac.kr`,
-		// 	message: randNum.current.message,
-		// 	reply_to: "no-reply",
-		// },{
-		// 	publicKey:"8Agqj8FFMCN0PzIpX"
-		// })
-		// .then(async () =>{
-		// 	setIsSend(v => !v);
-		// 	await Swal.fire({
-		// 		title:`인증번호를 ${email}@hs.ac.kr 로 보냈습니다!`,
-		// 		showConfirmButton: false,
-		// 		icon: "success",
-		// 		timer: 1000,
-		// 	});
-		// });
+		randNum.current = {message:String(Math.floor(Math.random() * 1000000)).padStart(6, "0")}
+		emailjs.send("service_ndlrp3n","template_g74apye",{
+			to_email: `${email}@hs.ac.kr`,
+			message: randNum.current.message,
+			reply_to: "no-reply",
+		},{
+			publicKey:"8Agqj8FFMCN0PzIpX"
+		})
+		.then(async () =>{
+			setIsSend(v => !v);
+			await Swal.fire({
+				title:`인증번호를 ${email}@hs.ac.kr 로 보냈습니다!`,
+				showConfirmButton: false,
+				icon: "success",
+				timer: 1000,
+			});
+		});
 			setIsSend(v => !v);
 
 	}
