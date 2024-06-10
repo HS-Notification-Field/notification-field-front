@@ -8,6 +8,7 @@ import SearchPage from "./pages/SearchPage";
 import {Index} from "./pages/Signup";
 import {Redirect} from "./util/Redirect";
 import {WritePage} from "./pages/WritePage";
+import DetailPage from "./pages/DetailPage";
 
 const Layout = () => {
 	return(
@@ -29,6 +30,7 @@ function App() {
 				  {/*<Route index element={<></>}/>*/}
 				  <Route path="main" element={<MainPage/>}/>
 				  <Route path="search" element={<SearchPage/>}/>
+			    <Route path="search/:boardId" element={<DetailPage/>}/>
 				  <Route path="write" element={<WritePage/>}/>
 			  </Route>
 			  <Route path="/redirect" element={<Redirect/>}/>

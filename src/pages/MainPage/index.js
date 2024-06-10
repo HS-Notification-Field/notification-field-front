@@ -2,19 +2,19 @@ import React from 'react';
 import {totalState} from "../../util/state";
 
 const MainPage = () => {
-	const {user} = totalState,
+	const {user, board} = totalState,
 		haksa = [
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-		{title: "2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "238"},
-	], content = [
-		{img_url: "https://hs.ac.kr/sites/hsguide/images/youtuber_hangomi.png", title: "한고미가 운영하는 한신대학교 유튜브 구경하기"},
-	];
+		{title: "[성적] 2024-1학기 성적조회 및 이의신청기간 안내", writer: "신한나", date: "2024.06.04", viewCount: "338"},
+		{title: "[강의평가] 2024학년도 1학기 기말강의평가 시행 안내", writer: "류수윤", date: "2024.06.04", viewCount: "272"},
+		{title: "[계절학기] 2024학년도 여름계절학기 수강료 납부 및 환불 안내", writer: "류수윤", date: "2024.05.23", viewCount: "921"},
+		{title: "[공결] 2024-1학기 개별출석인정 및 공결처리 마감 안내", writer: "류수윤", date: "2024.05.21", viewCount: "2092"},
+		{title: "(경인지역대학 학점교류학생 대상)전산회계 , AWS 클라우드서비스 학점이수 과정안내", writer: "류수윤", date: "2024.05.21", viewCount: "274"},
+		{title: "[학적] 2024학년도 2학기 재학생 복수(융합)전공 신청 및 취소기간 안내", writer: "신한나", date: "2024.05.13", viewCount: "538"},
+		{title: "[분납등록] 2024학년도 1학기 학부 분납4차 등록금 납부 안내", writer: "서민지", date: "2024.05.13", viewCount: "169"},
+		{title: "[계절학기](과목수정)2024학년도 여름계절학기 개설예정과목 및 수강관련 안내", writer: "류수윤", date: "2024.05.13", viewCount: "1335"},
+	], content = board.dummyData;
+
+
 	return (
 		<div className="">
 			<div className="h-[300px] bg-[#9B9ECE]">
@@ -98,15 +98,15 @@ const MainPage = () => {
 				</main>
 			</div>
 			<div className="mt-[40px] mx-[200px]">
-				<header className="mb-[12px]">
+				<header className="mb-[12px] ">
 					<span className="text-[28px]">우리 학교 숨겨진 꿀잼 컨텐츠!&gt;</span>
 				</header>
-				<main>
+				<main className={"w-full flex gap-[16px] flex-nowrap"}>
 					{
 						content.map((item) => (
 							<div className="w-[250px] h-[230px] bg-[#1C1C1C] rounded-[8px] text-[#E7E7E5] px-[14px] pt-[14px] hover:scale-110 cursor-pointer">
 								<img className="rounded-[16px] w-[222px] h-[138px]" src={item.img_url} alt=""/>
-								<div className="pt-[12px]">
+								<div className="pt-[12px] truncate">
 									<span className="text-[18px] font-bold break-all">{item.title}</span>
 								</div>
 							</div>

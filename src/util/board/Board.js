@@ -3,11 +3,11 @@ export default class Board{
 		this.dummyData = [
 			{
 				id:"1",
-				title:"ㅋㅋㅋㅋ",
-				content:"zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+				title:"한고미가 운영하는 한신대 학교 유튜브 구경하기",
+				content:"한고미가 운영하는 한신대 학교 유튜브 구경하기",
 				writer:"dbgmlwns",
-				hashTags: [],
-				img_url:"",
+				hashTags: ["한신대학교", "꿀잼"],
+				img_url:"https://hs.ac.kr/sites/hsguide/images/youtuber_hangomi.png",
 				createDate: new Date().toLocaleString(),
 			},
 		]

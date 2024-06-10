@@ -13,10 +13,10 @@ const Search = () => {
 				<div className="w-full flex gap-[16px] flex-wrap">
 					{
 						boardList.map((board) =>(
-							<div key={board.id} className="w-[250px] h-[230px] bg-[#1C1C1C] rounded-[8px] text-[#E7E7E5] px-[14px] pt-[14px] hover:scale-110 cursor-pointer">
+							<div key={board.id} onClick={() => navigate(`${board.id}`)} className=" w-[250px] h-[230px] bg-[#1C1C1C] rounded-[8px] text-[#E7E7E5] px-[14px] pt-[14px] hover:scale-110 cursor-pointer">
 								<img className="rounded-[16px] w-[222px] h-[138px]" src={board.img_url} alt=""/>
-								<div className="pt-[12px]">
-									<span className="text-[18px] font-bold break-all">{board.title}</span>
+								<div className="pt-[12px] truncate">
+									<span className="text-[18px] font-bold break-all ">{board.title}</span>
 								</div>
 								<div className="truncate text-clip mt-1">
 									{
