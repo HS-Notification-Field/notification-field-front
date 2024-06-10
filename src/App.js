@@ -4,10 +4,10 @@ import Nav from "./components/nav/Nav";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
 import React from "react";
-import {Footer} from "./components/Footer";
 import SearchPage from "./pages/SearchPage";
 import {Index} from "./pages/Signup";
 import {Redirect} from "./util/Redirect";
+import {WritePage} from "./pages/WritePage";
 
 const Layout = () => {
 	return(
@@ -15,7 +15,6 @@ const Layout = () => {
 			<Nav/>
 
 			<Outlet/>
-			<Footer/>
 		</div>
 	)
 }
@@ -27,9 +26,10 @@ function App() {
 			  <Route index element={<LoginPage/>}/>
 			  <Route path="signup" element={<Index/>}/>
 			  <Route path="/" element={<Layout/>} >
-				  <Route index element={<></>}/>
+				  {/*<Route index element={<></>}/>*/}
 				  <Route path="main" element={<MainPage/>}/>
 				  <Route path="search" element={<SearchPage/>}/>
+				  <Route path="write" element={<WritePage/>}/>
 			  </Route>
 			  <Route path="/redirect" element={<Redirect/>}/>
 		  </Routes>
