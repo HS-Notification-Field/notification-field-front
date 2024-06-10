@@ -1,0 +1,9 @@
+textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #472F91; /* 스크롤바 막대 색상 */
+  border-radius: 12px;
+  width: 4px;
+}

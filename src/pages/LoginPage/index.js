@@ -4,12 +4,12 @@ import styled from "styled-components";
 import './LoginPage.css'
 import Swal from 'sweetalert2'
 import {Input} from "../../components/inputGroup/Input";
-import {userState} from "../../util/state";
+import {totalState} from "../../util/state";
 
 const LoginPage = () => {
 	const [id, setId] = useState("");
 	const [pwd, setPwd] = useState("");
-	const {user} = userState;
+	const {user} = totalState;
 	const checkId = (event) => {
 		setId(event.target.value);
 	}
@@ -29,6 +29,7 @@ const LoginPage = () => {
 					timer: 1000,
 				})
 				if(res) {
+					totalState.userId = id;
 					navigate("/main");
 				}
 			})

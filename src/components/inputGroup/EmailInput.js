@@ -36,7 +36,7 @@ export const EmailInput = (props) => {
 				timer: 1000,
 			});
 		});
-			setIsSend(v => true);
+		setIsSend(v => true);
 
 	}
 	const emailAuthCheck = async () => {

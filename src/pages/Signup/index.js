@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {Dropdown} from "../../components/menu/Dropdown";
 import {EmailInput} from "../../components/inputGroup/EmailInput";
 import {PasswordInput} from "../../components/inputGroup/PasswordInput";
-import {userState} from "../../util/state";
+import {totalState} from "../../util/state";
 
 export const Index = () => {
 	const navigate = useNavigate();
@@ -17,7 +17,7 @@ export const Index = () => {
 	const [HSNumber, setHSNum] = useState('');
 	const [name, setName] = useState('');
 	const [pass, setPass] = useState('');
-	const {user} = userState;
+	const {user} = totalState;
 	// const user = useRecoilValue(userState);
 	const onCheck = (setState) => (v) => {
 		setState(value => v)
@@ -40,7 +40,7 @@ export const Index = () => {
 				HSNumber: HSNumber,
 				name: name
 			}
-		);
+		).then(r => r);
 		console.log(user);
 		navigate("/")
 	};
