@@ -2,12 +2,14 @@ import React, {useState} from 'react'
 import './WritePage.css'
 import {totalState} from "../../util/state";
 import Swal from 'sweetalert2'
+import {useNavigate} from "react-router-dom";
 
 export const WritePage = () => {
 	const [inputHashTag, setInputHashTag] = useState('');
 	const [hashTags, setHashTags] = useState([]);
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
+	const navigate = useNavigate();
 	const isEmptyValue = (value) => {
 		return !value.length;
 
@@ -85,7 +87,7 @@ export const WritePage = () => {
 			hashTags,
 			"writer":totalState.userId
 		}).then();
-
+		navigate("/search")
 	}
 	return (
 		<div className="mx-[200px]">

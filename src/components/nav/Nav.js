@@ -25,8 +25,8 @@ const Nav = () => {
 			</div>
 			<div className="border-b border-[#303030] w-full h-[1px]"></div>
 			<div className="flex justify-between items-center h-[80px] mx-[200px] my-auto">
-				<div id="logo">
-					<img src="/image/logo.png" alt=""/>
+				<div id="logo" className="hover:cursor-pointer">
+					<img src="/image/logo.png" onClick={() => navigate("/main")} alt=""/>
 				</div>
 				<div className="relative">
 					<Input className="h-[50px!important] w-[400px!important] bg-[#252525!important] pr-[50px!important]"></Input>

@@ -9,7 +9,7 @@ const Search = () => {
 	return (
 		<div className="text-[#E7E7E5] mx-[200px] ">
 			<div className="w-full flex justify-between">
-				<div className="w-[200px]">d</div>
+				<div className="w-[200px]">전체</div>
 				<div className="w-full flex gap-[16px] flex-wrap">
 					{
 						boardList.map((board) =>(
@@ -17,6 +17,13 @@ const Search = () => {
 								<img className="rounded-[16px] w-[222px] h-[138px]" src={board.img_url} alt=""/>
 								<div className="pt-[12px]">
 									<span className="text-[18px] font-bold break-all">{board.title}</span>
+								</div>
+								<div className="truncate text-clip mt-1">
+									{
+										board.hashTags.map((hashTag) =>(
+											<span className={"inline bg-[#472F91] me-[8px] text-[10px] rounded-[32px] p-1"}>{hashTag}</span>
+										))
+									}
 								</div>
 							</div>
 						))
