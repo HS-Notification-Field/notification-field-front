@@ -1,7 +1,9 @@
 import React from 'react';
 import {totalState} from "../../util/state";
+import {useNavigate} from "react-router-dom";
 
 const MainPage = () => {
+	const navigate = useNavigate();
 	const {user, board} = totalState,
 		haksa = [
 		{title: "[성적] 2024-1학기 성적조회 및 이의신청기간 안내", writer: "신한나", date: "2024.06.04", viewCount: "338"},
@@ -14,7 +16,15 @@ const MainPage = () => {
 		{title: "[계절학기](과목수정)2024학년도 여름계절학기 개설예정과목 및 수강관련 안내", writer: "류수윤", date: "2024.05.13", viewCount: "1335"},
 	], content = board.dummyData;
 
+	const goToHaksa = () => {
+		window.open('about:blank').location.href='https://hs.ac.kr/kor/4956/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29yJTJGMjc0JTJGMTQ0ODI1JTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D'
+	}
 
+	const goToAI = () => {
+		window.open('about:blank').location.href='https://www.hs.ac.kr/kor/12393/subview.do'
+
+
+	}
 	return (
 		<div className="">
 			<div className="h-[300px] bg-[#9B9ECE]">
@@ -65,7 +75,7 @@ const MainPage = () => {
 						<img className="justify-self-center" src="/image/homepage/IMG_0256%201.png" alt={""}/>
 						<span className="text-[14px]">이공계융합</span>
 					</div>
-					<div className="grid hover:scale-110 cursor-pointer">
+					<div className="grid hover:scale-110 cursor-pointer" onClick={goToAI}>
 						<img className="justify-self-center" src="/image/homepage/노트북쿠오%201.png" alt={""}/>
 						<span className="text-[14px]">AI·SW</span>
 					</div>
@@ -79,7 +89,7 @@ const MainPage = () => {
 					<div className="flex gap-x-[8px] flex-nowrap overflow-x-hidden w-full">
 						{
 							haksa.map((item) => (
-								<div>
+								<div onClick={goToHaksa}>
 									<div
 										className="w-[250px] h-[120px] bg-[#1C1C1C] rounded-[8px] text-[#E7E7E5] flex flex-col justify-center gap-[12px] p-[8px] cursor-pointer">
 										<div className="line-clamp-2 truncate whitespace-normal">
@@ -104,10 +114,17 @@ const MainPage = () => {
 				<main className={"w-full flex gap-[16px] flex-nowrap"}>
 					{
 						content.map((item) => (
-							<div className="w-[250px] h-[230px] bg-[#1C1C1C] rounded-[8px] text-[#E7E7E5] px-[14px] pt-[14px] hover:scale-110 cursor-pointer">
+							<div onClick={() => navigate(`/search/${item.id}`)} className="w-[250px] h-[230px] bg-[#1C1C1C] rounded-[8px] text-[#E7E7E5] px-[14px] pt-[14px] hover:scale-110 cursor-pointer">
 								<img className="rounded-[16px] w-[222px] h-[138px]" src={item.img_url} alt=""/>
 								<div className="pt-[12px] truncate">
 									<span className="text-[18px] font-bold break-all">{item.title}</span>
+								</div>
+								<div className="truncate text-clip mt-1">
+									{
+										item.hashTags.map((hashTag) =>(
+											<span className={"inline bg-[#472F91] me-[8px] text-[10px] rounded-[32px] p-1"}>{hashTag}</span>
+										))
+									}
 								</div>
 							</div>
 						))

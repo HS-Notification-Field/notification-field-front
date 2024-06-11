@@ -8,6 +8,31 @@ export default class Board{
 				writer:"dbgmlwns",
 				hashTags: ["한신대학교", "꿀잼"],
 				img_url:"https://hs.ac.kr/sites/hsguide/images/youtuber_hangomi.png",
+				comment:[
+					{
+						id:"1",
+						writer: "yhj3855",
+						content: "재밌어요!",
+						created_at: "2024. 6. 11. 오전 10:09:46",
+					}
+				],
+				createDate: new Date().toLocaleString(),
+			},
+			{
+				id:"2",
+				title:"새내기 발표 어떻게 해야할까요",
+				content:"발표 너무 떨리고 무서운데 어떻게 하죠..",
+				writer:"dbgmlwns",
+				hashTags: ["한신대학교", "발표", "새내기"],
+				img_url:"https://www.hs.ac.kr/sites/hsguide/images/new_kookoo.png",
+				comment:[
+					{
+						id:"1",
+						writer: "yhj3855",
+						content: "잘 해야죠",
+						created_at: "2024. 6. 11. 오전 10:09:46",
+					}
+				],
 				createDate: new Date().toLocaleString(),
 			},
 		]
@@ -21,6 +46,8 @@ export default class Board{
 			content:boardObj.content,
 			writer:boardObj.writer,
 			hashTags: boardObj.hashTags,
+			comment:[],
+			img_url: "https://www.hs.ac.kr/sites/hsguide/images/congrats.png",
 			createDate: new Date(),
 		});
 		console.log(this.dummyData);
